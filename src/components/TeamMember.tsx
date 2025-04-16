@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "motion/react";
@@ -40,7 +41,6 @@ const TeamMember: React.FC<TeamMemberProps> = ({
       <div 
         className={cn(
           "group relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#1D2235] to-[#121318] p-4 transition-all duration-500",
-          "hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(139,92,246,0.3)]",
           "before:absolute before:inset-[1px] before:rounded-2xl before:bg-gradient-to-br before:from-[#1D2235]/80 before:to-[#121318]/80 before:z-10",
           "after:absolute after:inset-0 after:rounded-2xl after:p-[1px]",
           "after:bg-[linear-gradient(90deg,#8B5CF6,#9333EA,#8B5CF6)] after:bg-[length:200%_100%]",
@@ -52,13 +52,13 @@ const TeamMember: React.FC<TeamMemberProps> = ({
         <Rays className="opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
         
         <div className="relative z-20">
-          <div className="overflow-hidden rounded-xl">
+          <div className="overflow-hidden rounded-xl max-w-[200px] mx-auto">
             <img
               src={imgSrc}
               alt={name}
-              width={300}
-              height={300}
-              className="w-full aspect-square object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
+              width={200}
+              height={200}
+              className="w-full aspect-square object-cover transition-all duration-500 group-hover:brightness-110"
             />
           </div>
           
@@ -542,3 +542,4 @@ const Rays = ({ className }: { className?: string }) => {
 };
 
 export default TeamMember;
+
