@@ -44,14 +44,16 @@ const TeamMember: React.FC<TeamMemberProps> = ({
     >
       <div 
         className={cn(
-          "relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#1D2235] to-[#121318] p-6 transition-all duration-300",
-          hovering ? "shadow-[0_0_20px_rgba(139,92,246,0.3)]" : "shadow-lg"
+          "group relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#1D2235] to-[#121318] p-6 transition-all duration-300 hover:scale-[1.02]",
+          hovering ? "shadow-[0_0_20px_rgba(139,92,246,0.3)]" : "shadow-lg",
+          "before:absolute before:inset-[1px] before:rounded-2xl before:bg-gradient-to-br before:from-[#1D2235]/80 before:to-[#121318]/80 before:z-10",
+          "after:absolute after:inset-0 after:rounded-2xl after:p-[1px] after:bg-gradient-to-br after:from-purple-500/50 after:via-transparent after:to-purple-500/50 after:opacity-0 after:transition-opacity after:duration-500 group-hover:after:opacity-100"
         )}
       >
         <Beams />
         <Rays className={cn(hovering ? "opacity-100" : "opacity-60", "transition-opacity duration-300")} />
         
-        <div className="relative z-10">
+        <div className="relative z-20">
           <Lens hovering={hovering} setHovering={setHovering} lensSize={200}>
             <img
               src={imgSrc}

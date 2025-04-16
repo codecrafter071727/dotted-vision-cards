@@ -85,11 +85,20 @@ const TeamPage = () => {
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       <AnimatedDots />
       
+      {/* Purple gradient orbs */}
+      <div className="fixed inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+      </div>
+      
       <div className="container mx-auto px-4 py-12 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ 
+            duration: 0.8, 
+            ease: [0.22, 1, 0.36, 1] 
+          }}
           className="text-center mb-16"
         >
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-300 to-purple-500 text-transparent bg-clip-text">
