@@ -1,8 +1,6 @@
-
 "use client";
 
 import { useState } from "react";
-import { Lens } from "@/components/ui/lens";
 import { motion } from "motion/react";
 import { Linkedin, Twitter, Mail, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -29,8 +27,6 @@ const TeamMember: React.FC<TeamMemberProps> = ({
   socials,
   delay = 0,
 }) => {
-  const [hovering, setHovering] = useState(false);
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -44,32 +40,30 @@ const TeamMember: React.FC<TeamMemberProps> = ({
     >
       <div 
         className={cn(
-          "group relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#1D2235] to-[#121318] p-6 transition-all duration-300 hover:scale-[1.02]",
-          hovering ? "shadow-[0_0_20px_rgba(139,92,246,0.3)]" : "shadow-lg",
+          "group relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#1D2235] to-[#121318] p-6 transition-all duration-500",
+          "hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]",
           "before:absolute before:inset-[1px] before:rounded-2xl before:bg-gradient-to-br before:from-[#1D2235]/80 before:to-[#121318]/80 before:z-10",
-          "after:absolute after:inset-0 after:rounded-2xl after:p-[1px] after:bg-gradient-to-br after:from-purple-500/50 after:via-transparent after:to-purple-500/50 after:opacity-0 after:transition-opacity after:duration-500 group-hover:after:opacity-100"
+          "after:absolute after:inset-0 after:rounded-2xl after:p-[1px]",
+          "after:bg-[linear-gradient(90deg,#8B5CF6,#9333EA,#8B5CF6)] after:bg-[length:200%_100%]",
+          "after:opacity-0 after:transition-[opacity,background-position] after:duration-500",
+          "group-hover:after:opacity-100 group-hover:after:animate-border-flow"
         )}
       >
         <Beams />
-        <Rays className={cn(hovering ? "opacity-100" : "opacity-60", "transition-opacity duration-300")} />
+        <Rays className="opacity-60 transition-opacity duration-300 group-hover:opacity-100" />
         
         <div className="relative z-20">
-          <Lens hovering={hovering} setHovering={setHovering} lensSize={200}>
+          <div className="overflow-hidden rounded-xl">
             <img
               src={imgSrc}
               alt={name}
               width={500}
               height={500}
-              className="rounded-xl object-cover aspect-square"
+              className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
             />
-          </Lens>
+          </div>
           
-          <motion.div
-            animate={{
-              filter: hovering ? "blur(1px)" : "blur(0px)",
-            }}
-            className="py-4 relative z-20 mt-4"
-          >
+          <div className="py-4 relative z-20 mt-4">
             <h2 className="text-white text-2xl font-bold mb-1">{name}</h2>
             <p className="text-purple-300 mb-3">{role}</p>
             <p className="text-neutral-300 text-sm mt-2 line-clamp-3">{bio}</p>
@@ -116,14 +110,13 @@ const TeamMember: React.FC<TeamMemberProps> = ({
                 )}
               </div>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
     </motion.div>
   );
 };
 
-// Visual effects for the card
 const Beams = () => {
   return (
     <svg
