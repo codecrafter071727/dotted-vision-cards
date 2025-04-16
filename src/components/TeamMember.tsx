@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "motion/react";
 import { Linkedin, Twitter, Mail, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -36,12 +35,12 @@ const TeamMember: React.FC<TeamMemberProps> = ({
         delay: delay * 0.2,
         ease: [0.22, 1, 0.36, 1] 
       }}
-      className="w-full max-w-sm mx-auto"
+      className="w-full max-w-xs mx-auto"
     >
       <div 
         className={cn(
-          "group relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#1D2235] to-[#121318] p-6 transition-all duration-500",
-          "hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(139,92,246,0.3)]",
+          "group relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#1D2235] to-[#121318] p-4 transition-all duration-500",
+          "hover:scale-[1.02] hover:shadow-[0_0_40px_rgba(139,92,246,0.3)]",
           "before:absolute before:inset-[1px] before:rounded-2xl before:bg-gradient-to-br before:from-[#1D2235]/80 before:to-[#121318]/80 before:z-10",
           "after:absolute after:inset-0 after:rounded-2xl after:p-[1px]",
           "after:bg-[linear-gradient(90deg,#8B5CF6,#9333EA,#8B5CF6)] after:bg-[length:200%_100%]",
@@ -57,27 +56,27 @@ const TeamMember: React.FC<TeamMemberProps> = ({
             <img
               src={imgSrc}
               alt={name}
-              width={500}
-              height={500}
-              className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105"
+              width={300}
+              height={300}
+              className="w-full aspect-square object-cover transition-all duration-500 group-hover:scale-105 group-hover:brightness-110"
             />
           </div>
           
-          <div className="py-4 relative z-20 mt-4">
-            <h2 className="text-white text-2xl font-bold mb-1">{name}</h2>
-            <p className="text-purple-300 mb-3">{role}</p>
-            <p className="text-neutral-300 text-sm mt-2 line-clamp-3">{bio}</p>
+          <div className="py-3 relative z-20 mt-3">
+            <h2 className="text-white text-xl font-bold mb-1 transition-transform duration-300 group-hover:translate-x-1">{name}</h2>
+            <p className="text-purple-300 mb-2 text-sm transition-transform duration-300 group-hover:translate-x-1 delay-75">{role}</p>
+            <p className="text-neutral-300 text-xs mt-2 line-clamp-3 transition-transform duration-300 group-hover:translate-x-1 delay-100">{bio}</p>
             
             {socials && (
-              <div className="flex justify-center gap-3 mt-4">
+              <div className="flex justify-center gap-3 mt-3">
                 {socials.linkedin && (
                   <a 
                     href={socials.linkedin} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-neutral-400 hover:text-purple-400 transition-colors"
+                    className="text-neutral-400 hover:text-purple-400 transition-colors transform hover:scale-110 duration-200"
                   >
-                    <Linkedin size={18} />
+                    <Linkedin size={16} />
                   </a>
                 )}
                 {socials.twitter && (

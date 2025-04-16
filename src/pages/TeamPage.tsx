@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import AnimatedDots from "@/components/AnimatedDots";
@@ -85,10 +84,11 @@ const TeamPage = () => {
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       <AnimatedDots />
       
-      {/* Purple gradient orbs */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full filter blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+      {/* Enhanced purple gradient orbs */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/4 -left-1/4 w-[800px] h-[800px] bg-purple-600/10 rounded-full filter blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 -right-1/4 w-[800px] h-[800px] bg-purple-500/10 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-purple-700/5 rounded-full filter blur-3xl animate-pulse delay-500"></div>
       </div>
       
       <div className="container mx-auto px-4 py-12 relative z-20">
@@ -109,7 +109,7 @@ const TeamPage = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mt-10">
           {teamMembers.map((member, index) => (
             <TeamMember
               key={index}
@@ -146,11 +146,11 @@ const TeamPage = () => {
         </motion.div>
       </div>
 
-      {/* Purple radial gradient effect */}
+      {/* Enhanced purple radial gradient effect */}
       <div 
         className="absolute inset-0 pointer-events-none" 
         style={{
-          background: "radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, rgba(0, 0, 0, 0) 60%)",
+          background: "radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.15) 0%, rgba(0, 0, 0, 0) 70%)",
           zIndex: 5
         }}
       />
